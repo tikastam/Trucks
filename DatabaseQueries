@@ -1,1 +1,142 @@
+create table drivers(
+id int auto_increment primary key,
+DriverName varchar(20),
+DriverLastName varchar(20),
+TruckMark varchar(10),
+TruckModel varchar(15)
 
+);
+alter table drivers add column special varchar(20);
+
+
+//drivers table
+
+
+
+create table driving(
+
+idtr int primary key auto_increment,
+driver varchar(50),
+stpoint varchar(30),
+destpoint varchar(30),
+stdate date,
+deadline date
+
+);
+
+//driving-load table
+
+create table log1(
+
+username varchar(11),
+pass varchar(30)
+
+);
+
+insert into log1 values('admin','admin');
+insert into log1 values('login1','login1');
+insert into log1 values('user1','user1');
+insert into log1 values('acc1','acc1');
+insert into log1 (username,pass) values('ac1','ac1');
+
+alter table log1 add column id int;
+alter table log1 add primary key(id);
+
+//log table
+
+create database trucks;
+
+create table mark(
+
+id int primary key auto_increment,
+mark varchar(20)
+
+);
+
+insert into mark(mark) value('Choose Mark');
+insert into mark(mark) value('Scania');
+insert into mark(mark) value('Volvo');
+insert into mark(mark) value('Mercedes');
+insert into mark(mark) value('DAF');
+insert into mark(mark) value('Iveco');
+
+select *
+from mark;
+
+//mark table
+
+
+
+
+
+
+create table model(
+
+markid int,
+model varchar(20)
+
+);
+
+alter table model add foreign key(markid) references mark(id);
+
+insert into model values(1,'Choose Model');
+
+insert into model values(2,'Choose Model');
+insert into model values(2,'S770');
+insert into model values(2,'G500');
+insert into model values(2,'R450');
+insert into model values(2,'P280');
+
+insert into model values(3,'Choose Model');
+insert into model values(3,'FH16');
+insert into model values(3,'FM');
+insert into model values(3,'FMX');
+insert into model values(3,'FE');
+
+insert into model values(4,'Choose Model');
+insert into model values(4,'Actros');
+insert into model values(4,'Axor');
+insert into model values(4,'Atego');
+
+delete from model where model.markid = 4;
+
+insert into model values(5,'Choose Model');
+insert into model values(5,'TGX');
+insert into model values(5,'TGS');
+insert into model values(5,'TGM');
+
+insert into model values(6,'Choose Model');
+insert into model values(6,'S Way');
+insert into model values(6,'Stralis');
+insert into model values(6,'EuroCargo');
+
+alter table model add column hp int;
+alter table model add column modelid int;
+alter table model drop column hp;
+
+update model set hp = null  where model = 'Choose Model';
+
+alter table model add column engine varchar(20);
+alter table model add column rating double; 
+
+select* from model order by markid asc;
+update model set hp = 0  where model = 'Choose Model';
+
+update model set rating = 0 where engine = 'Select Model';
+
+select * from model join mark where model.markid = mark.id;
+
+
+alter table model add column ty varchar(10);
+update model set ty = 'Euro4' where model = 'EuroCargo';
+
+//model table
+
+
+create table specialskills(
+idskill int auto_increment primary key,
+skills varchar(20)
+
+);
+
+//specialskills table
