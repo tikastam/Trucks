@@ -2,4 +2,4 @@
 Management system for transport companies where first should be accessed to log file.
 
 
-![main](https://github.com/tikastam/Trucks/assets/79874515/4ec4111b-cd71-406a-b15d-14f24854cc33)
+![main](https://github.com/tikastam/Trucks/assets/79874515/69781226-c1d9-4a22-aa56-d4b14024d018)
